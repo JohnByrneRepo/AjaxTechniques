@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Json demo</title>
+   <script src="js/jquery.min.js"></script>
+   <script type="text/javascript" language="javascript">
+   $(document).ready(function() {
+      $("#click-me").click(function(event){
+		console.log("Click!");
+          $.getJSON('data.json', function(data) {
+		  console.log("Data:" + data);
+             $('#main-content').html('<p> Name: ' + data[0].name + '</p>');
+             $('#main-content').append('<p>Age : ' + data[0].age+ '</p>');
+             $('#main-content').append('<p> Occupation: ' + data[0].occupation+ '</p>');
+          });
+      });
+   });
+   </script>
+</head>
+<body>
+   <div id="main-content" style="background-color:indigo;color:#fff;">
+          When loaded, the Json data will be shown here.  Click the button to load it!
+   </div>
+   <input type="button" id="click-me" value="Load Data" />
+</body>
+</html>
